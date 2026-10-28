@@ -1,0 +1,16 @@
+# İşletim sistemi dosyaları
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editör ve IDE ayarları
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Geçici ve günlük dosyaları
+*.log
+*.tmp
+*.temp

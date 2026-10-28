@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11152f">
+  <title>Yıldız Patisi — Görev Günlüğü</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="app-layout">
+    <aside class="sidebar" aria-label="Ana gezinme">
+      <a class="brand" href="#tasks" data-page-link="tasks"><span class="brand-mark" aria-hidden="true">✦</span><span>Yıldız<br>Patisi</span></a>
+      <p class="side-label">MACERA</p>
+      <nav class="side-nav">
+        <button class="nav-link is-current" data-page-link="tasks" aria-current="page"><span aria-hidden="true">▤</span> Görevler</button>
+        <button class="nav-link" data-page-link="garden"><span aria-hidden="true">✿</span> Yıldız Bahçem</button>
+        <button class="nav-link" data-page-link="profile"><span aria-hidden="true">♙</span> Profilim</button>
+      </nav>
+      <div class="side-cat" aria-hidden="true"><span>ฅ</span><small>Görevlerini yap,<br>bahçeni büyüt!</small></div>
+      <p class="side-version">KÜÇÜK ADIMLAR · BÜYÜK MACERALAR</p>
+    </aside>
+
+    <main class="main-area">
+      <header class="page-heading">
+        <div><p class="eyebrow">KÜÇÜK ADIMLAR, BÜYÜK MACERALAR</p><h1 id="page-title">Görevler</h1><p id="page-subtitle" class="intro">Bugünkü görevlerini seç ve bahçene bir yıldız daha ekle.</p></div>
+        <div class="header-chip"><span aria-hidden="true">✦</span> <span id="header-progress">0 yıldız</span></div>
+      </header>
+
+      <section id="page-tasks" class="page-view" aria-labelledby="list-heading">
+        <section class="quest-panel">
+          <div class="panel-top"><span class="pixel-star" aria-hidden="true">✦</span><h2 id="list-heading">Görev panosu</h2><span class="pixel-star" aria-hidden="true">✦</span></div>
+          <form id="task-form" class="task-form">
+            <label for="task-input">Yeni bir görev yaz</label>
+            <div class="input-row"><input id="task-input" name="task" type="text" maxlength="180" placeholder="Örn. bitkilere su ver" autocomplete="off" required><button class="add-button" type="submit"><span aria-hidden="true">＋</span> Ekle</button></div>
+          </form>
+          <div class="toolbar"><nav class="filters" aria-label="Görevleri filtrele"><button type="button" class="filter-button is-selected" data-filter="all" aria-pressed="true">Tümü</button><button type="button" class="filter-button" data-filter="active" aria-pressed="false">Aktif</button><button type="button" class="filter-button" data-filter="completed" aria-pressed="false">Tamamlananlar</button></nav><button id="clear-completed" class="clear-button" type="button">Tamamlananları temizle</button></div>
+          <p id="task-count" class="task-count" aria-live="polite">0 aktif görev</p><ul id="task-list" class="task-list" aria-label="Görevler"></ul>
+          <div id="empty-state" class="empty-state"><span class="empty-icon" aria-hidden="true">☾</span><p>Macera henüz başlamadı.</p><span>İlk görevini ekle, pati izlerini takip et!</span></div>
+        </section>
+      </section>
+
+      <section id="page-garden" class="page-view" aria-labelledby="garden-heading" hidden>
+        <section class="garden-panel quest-panel">
+          <div class="panel-top"><span class="pixel-star" aria-hidden="true">✦</span><h2 id="garden-heading">Yıldız Bahçem</h2><span class="pixel-star" aria-hidden="true">✦</span></div>
+          <p class="garden-intro">Her tamamlanan görev bahçene enerji verir. Biriktirdiğin yıldızlarla yeni yaşamlar filizlenir!</p>
+          <div class="garden-scene stage-0" id="garden-scene" role="img" aria-label="Boş gece bahçesi. Tamamlanan görevlerle burada bitkin büyür.">
+            <svg class="landscape" viewBox="0 0 800 360" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+              <rect width="800" height="360" fill="#171d40"/><path d="M0 180h800v180H0z" fill="#20284d"/>
+              <g fill="#f4ca73"><path d="M96 53h8v8h-8zm75 61h6v6h-6zm530-42h8v8h-8zm-91 92h5v5h-5zm-444-48h5v5h-5zm534 1h6v6h-6z"/><path d="M218 73h8v4h-8v8h-4v-8h-8v-4h8v-8h4zm402 25h8v4h-8v8h-4v-8h-8v-4h8v-8h4z"/></g>
+              <path d="M0 238 120 174l83 53 100-103 112 106 104-85 95 75 89-60 97 64v76H0z" fill="#30365e"/><path d="m0 264 97-58 90 46 93-55 107 66 89-60 103 53 105-49 116 56v62H0z" fill="#315b58"/><path d="M0 292h800v68H0z" fill="#264844"/>
+              <path d="M0 307h800M0 335h800" stroke="#38645a" stroke-width="4" stroke-dasharray="16 12"/><path d="M72 299h8v8h-8zm176 32h8v8h-8zm454-29h8v8h-8zm53 35h8v8h-8z" fill="#ef786e"/>
+            </svg>
+            <div class="scene-label">AY IŞIĞI BAHÇESİ <span>✦</span></div>
+            <div class="scene-moon" aria-hidden="true">☾</div>
+            <svg id="garden-plant" class="garden-plant plant-stage-0" viewBox="0 0 200 220" aria-hidden="true" shape-rendering="crispEdges">
+              <g class="plant-form form-seed"><ellipse cx="100" cy="190" rx="40" ry="12" fill="#182c32"/><path d="M87 184h26v12H87z" fill="#8e5d45"/><path d="M92 178h16v8H92z" fill="#f3bd55"/><path d="M97 173h6v6h-6z" fill="#fff0c5"/></g>
+              <g class="plant-form form-sprout"><ellipse cx="100" cy="194" rx="48" ry="14" fill="#182c32"/><path d="M63 183h74v15H63z" fill="#9a674a"/><path d="M72 174h56v12H72z" fill="#bd8050"/><path d="M97 174h8v-54h-8z" fill="#a6d9bc"/><path d="M91 128h8v-18h-8zM105 148h8v-17h-8z" fill="#75bd90"/><path d="M80 121h17v8H80zM104 135h17v8h-17z" fill="#75bd90"/><path d="M84 113h12v8H84zM112 127h9v8h-9z" fill="#a6d9bc"/></g>
+              <g class="plant-form form-bloom"><ellipse cx="100" cy="194" rx="53" ry="15" fill="#182c32"/><path d="M58 179h84v20H58z" fill="#9a674a"/><path d="M68 168h64v14H68z" fill="#bd8050"/><path d="M96 168h8V91h-8z" fill="#a6d9bc"/><path d="M78 143h18v9H78zM104 126h18v9h-18z" fill="#75bd90"/><path d="M65 136h15v9H65zM118 119h14v9h-14z" fill="#a6d9bc"/><path d="M72 132h11v6H72zM124 115h10v6h-10z" fill="#a6d9bc"/><path d="M83 84h34v8h-34zM91 76h18v8H91zM91 92h18v8H91zM75 84h8v8h-8zM117 84h8v8h-8z" fill="#ef786e"/><path d="M91 84h18v8H91z" fill="#f3bd55"/></g>
+              <g class="plant-form form-garden"><ellipse cx="100" cy="194" rx="76" ry="16" fill="#182c32"/><path d="M38 176h124v23H38z" fill="#9a674a"/><path d="M48 163h104v16H48z" fill="#bd8050"/><path d="M97 163h8V75h-8z" fill="#a6d9bc"/><path d="M76 141h21v9H76zM105 127h22v9h-22zM84 111h14v8H84z" fill="#75bd90"/><path d="M64 134h17v9H64zM123 119h16v9h-16zM75 105h14v8H75z" fill="#a6d9bc"/>
+                <path d="M83 70h34v8H83zM91 62h18v8H91zM91 78h18v8H91zM75 70h8v8h-8zM117 70h8v8h-8z" fill="#ef786e"/><path d="M91 70h18v8H91z" fill="#f3bd55"/>
+                <path d="M38 105h20v8H38zM44 97h8v8h-8zM47 113h8v8h-8zM143 101h20v8h-20zM151 93h8v8h-8zM145 109h8v8h-8z" fill="#f3bd55"/><path d="M28 170h9v9h-9zm135-8h9v9h-9zm-20 26h8v8h-8z" fill="#a6d9bc"/>
+              </g>
+            </svg>
+            <div class="scene-fireflies" aria-hidden="true"><i>✦</i><i>·</i><i>✧</i><i>·</i></div>
+          </div>
+          <div class="garden-status"><div><strong id="garden-stage">Tohum zamanı</strong><span id="garden-message">İlk görevini tamamla ve toprağa bir tohum ek.</span></div><span class="garden-level" id="garden-level">AŞAMA 0</span></div>
+          <div class="growth-track"><div id="growth-fill"></div></div><p id="next-growth" class="next-growth">Bir sonraki filiz için 1 görev tamamla</p>
+        </section>
+      </section>
+
+      <section id="page-profile" class="page-view" aria-labelledby="profile-heading" hidden>
+        <section class="profile-panel quest-panel">
+          <div class="panel-top"><span class="pixel-star" aria-hidden="true">✦</span><h2 id="profile-heading">Gezgin profili</h2><span class="pixel-star" aria-hidden="true">✦</span></div>
+          <div class="profile-card"><div class="profile-avatar" aria-hidden="true"><svg viewBox="0 0 64 64"><path fill="#f3bd55" d="M9 12 23 18h18l14-6-3 18v17l-9 10H21l-9-10V30zM10 13 7 4l16 8m31 1 3-9-16 8"/><path fill="#172040" d="M17 26h8v8h-8zm22 0h8v8h-8z"/><path fill="#ef786e" d="M28 36h8l-4 5z"/><path fill="#fff0c5" d="M24 44h16l6 9H18z"/></svg></div><div><p class="profile-label">YILDIZ GEZGİNİ</p><h3>Bahçe Dostu</h3><p class="profile-copy">Her küçük adım dünyanı biraz daha yeşertir.</p></div></div>
+          <div class="stats-grid"><article class="stat-card"><span class="stat-icon">✦</span><strong id="profile-stars">0</strong><span>Toplanan yıldız</span></article><article class="stat-card"><span class="stat-icon">✓</span><strong id="profile-done">0</strong><span>Tamamlanan görev</span></article><article class="stat-card"><span class="stat-icon">☘</span><strong id="profile-plants">0</strong><span>Bahçedeki filiz</span></article></div>
+          <p class="profile-note">İlerlemen bu tarayıcıda saklanır. Görevleri temizlesen bile kazandığın yıldızlar ve bahçe gelişimin seninle kalır.</p>
+        </section>
+      </section>
+      <footer>Bir görev bir yıldız demek <span aria-hidden="true">✦</span></footer>
+    </main>
+  </div>
+</body>
+</html>
+
+
+
